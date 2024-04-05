@@ -1,0 +1,35 @@
+<li class="Count">
+  <%= "Count: #{@count}" %>
+</li>
+
+<% @data.each do |member| %>
+  <ul class="Member">
+    <li class="Name">
+      <%= "Name: #{member[:name]}" %>
+      <% if member[:photoUrl].present? %>
+        <img src="<%= member[:photoUrl] %>" >
+      <% end %>
+    </li>
+    <li class="Ally">
+      <% if member[:allies].present? %>
+        <% member[:allies].each do |ally| %>
+          <%= "Ally: #{ally}" %><br>
+        <% end %>
+      <% else %>
+        <%= "Ally: None" %>
+      <% end %>
+    </li>
+    <li class="Enemy">
+      <% if member[:enemies].present? %>
+        <% member[:enemies].each do |enemy| %>
+          <%= "Enemy: #{enemy}" %><br>
+        <% end %>
+      <% else %>
+        <%= "Enemy: None" %>
+      <% end %>
+    </li>
+    <li class="Affiliation">
+      <%= "Affiliation: #{member[:affiliation]}" %>
+    </li>
+  </ul>
+<% end %>
